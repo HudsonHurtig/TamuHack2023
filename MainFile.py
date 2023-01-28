@@ -13,17 +13,23 @@ df = pd.DataFrame({
     "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"]
 })
 
-fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="group")
+
+labels = ['Stocks','bonds','savings']
+values = [50, 25, 25]
+
+fig = go.Figure(data=[go.Pie(labels=labels, values=values)])
+
+
 
 app.layout = html.Div(children=[
-    html.H1(children='Hello Dash'),
+    html.H1(children='GS + TAMUHACK2023 portfolio optimizer'),
 
     html.Div(children='''
-        Dash: A web application framework for your data.
+        Welcome to risk mitigated finance.
     '''),
 
     dcc.Graph(
-        id='example-graph',
+        id='portfolio composition',
         figure=fig
     )
 ])
