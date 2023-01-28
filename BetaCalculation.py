@@ -1,20 +1,32 @@
-import pandas_datareader as pdr
-from sklearn import linear_model
+import yfinance as yf
+import pandas as pd
+from scipy.stats import linregress
 
-# Define the stock ticker and the benchmark index
+# Define the stock ticker
 ticker = 'AAPL'
-benchmark = 'SPY'
 
-# Retrieve historical stock data from Yahoo Finance
-stock_data = pdr.get_data_yahoo(ticker)
-benchmark_data = pdr.get_data_yahoo(benchmark)
+# Retrieve weekly historical stock data from yfinance
+stock_data = yf.download(ticker, period='max', interval='1wk')
 
-# Calculate daily returns for the stock and benchmark index
-stock_returns = stock_data.loc[:, 'Adj Close'].pct_change()
-benchmark_returns = benchmark_data['Adj Close'].pct_change()
+# Calculate stock returns
+stock_returns = stock_data['Close'].pct_change().dropna()
 
-# Run a linear regression to calculate the beta value
-regression = linear_model.LinearRegression()
-regression.fit(benchmark_returns.values.reshape(-1, 1), stock_returns.values)
-beta = regression.coef_[0]
-print('Beta value for', ticker, 'is', beta)
+#Retrieve S&P500 data
+market_data = yf.download('SPY', period='max', interval='1wk')
+
+# Calculate market returns
+market_returns = market_data['Close'].pct_change().dropna()
+
+# merge the stock and market returns
+data = pd.concat([stock_returns, market_returns], axis=1)
+data.columns = [ticker, 'market']
+
+# calculate beta values over time
+beta_list = []
+for i in range(len(stock_returns) - 1):
+    subset = data.iloc[i:i+2]
+    slope, _, rvalue, _, _ = linregress(subset['market'], subset[ticker])
+    beta = slope
+    beta_list.append(beta)
+
+print(beta_list)
