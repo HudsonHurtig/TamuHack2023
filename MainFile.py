@@ -15,7 +15,7 @@ df = pd.DataFrame({
 })
 
 
-labels = ['Stocks','bonds','savings']
+labels = ['Stocks','Bonds','Savings']
 values = [50, 25, 25]
 
 fig = go.Figure(data=[go.Pie(labels=labels, values=values)])
