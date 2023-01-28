@@ -10,7 +10,7 @@ stock_data = pdr.get_data_yahoo(ticker)
 benchmark_data = pdr.get_data_yahoo(benchmark)
 
 # Calculate daily returns for the stock and benchmark index
-stock_returns = stock_data['Adj Close'].pct_change()
+stock_returns = stock_data.loc[:, 'Adj Close'].pct_change()
 benchmark_returns = benchmark_data['Adj Close'].pct_change()
 
 # Run a linear regression to calculate the beta value
