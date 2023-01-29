@@ -17,18 +17,18 @@ fig = go.Figure(data=[go.Pie(labels=labels, values=values)])
 
 
 app.layout = html.Div(children=[
-    html.H1('GS + TAMUHACK2023 portfolio Risk optimizer', style={'textAlign': 'center'}),
+    html.H1('GS + TAMUHACK2023 portfolio Risk optimizer\n', style={'textAlign': 'center'}),
 
     html.H2(children='''
-        Welcome to risk mitigated finance. Simplified. 
+        Welcome to risk mitigated finance. Simplified.\n 
     ''', style={'textAlign': 'center'}),
     
     html.H3(children='''
-        There are many types of risk and exposure. Intuition would have it the safest and most conservative thing to do with the money you have saved up is nothing!
+        There are many types of risk and exposure. Intuition would have it the safest and most conservative thing to do with the money you have saved up is nothing!\n
     ''', style={'textAlign': 'center'}),
     
     html.H3(children='''
-        However, there are many factors that would potentially make this not the case.
+        However, there are many factors that would potentially make this not the case.\n
      ''', style={'textAlign': 'center'})#,
 
     # dcc.Graph(
