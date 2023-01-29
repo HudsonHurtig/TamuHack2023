@@ -17,7 +17,7 @@ fig = go.Figure(data=[go.Pie(labels=labels, values=values)])
 
 
 app.layout = html.Div(children=[
-    html.H1('GS + TAMUHACK2023 portfolio Risk optimizer', style={'textAlign': 'center', 'color': '#7FDBFF'}),
+    html.H1('GS + TAMUHACK2023 portfolio Risk optimizer', style={'textAlign': 'center'}),
 
     html.Div(children='''
         Welcome to risk mitigated finance. Simplified. 
