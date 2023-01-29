@@ -8,8 +8,6 @@ import numpy as np
 
 import time
 
-
-
 rows=[]
 with open('D:\TamuHack2023\Book1.csv') as file:
     csvreader = csv.reader(file)
@@ -23,12 +21,9 @@ yearsToMatureList = []
 couponRateList = []
 freqList = []
 
-
 tickerList = []
 
-
-
-for i in range(len(rows)):
+for i in range(5):
     currentPriceList.append(float(rows[i][header.index('current price')]))
     faceValList.append(float(rows[i][header.index('Face value')]))
     yearsToMatureList.append(float(rows[i][header.index('years to maturity')]))
@@ -42,8 +37,7 @@ def sharpe_sortino_beta(ticker='TSLA', market_returns='SPY'):
     try:
         
         ts = TimeSeries(key='SWKZ23Y8HKIF4N4A', output_format='pandas')
-        data, meta_data = ts.get_daily_adjusted(ticker)
-        
+        data, meta_data = ts.get_daily_adjusted(ticker)  
     
     except:
         
@@ -60,9 +54,9 @@ def sharpe_sortino_beta(ticker='TSLA', market_returns='SPY'):
     data_market, meta_data = ts.get_daily_adjusted(market_returns)
     market_returns = data_market['4. close'].pct_change()
     beta_value = returns.cov(market_returns) / market_returns.var()
-    print("Sharpe Ratio:", sharpe_ratio)   ### return of asset - market return / stdev
-    print("Sortino Ratio:", sortino_ratio) ### return of asset - market return / stdev of down side
-    print("beta_value:",beta_value) ### measure of volatility
+    # print("Sharpe Ratio:", sharpe_ratio)   ### return of asset - market return / stdev
+    # print("Sortino Ratio:", sortino_ratio) ### return of asset - market return / stdev of down side
+    # print("beta_value:",beta_value) ### measure of volatility
     
     return {"ticker": ticker,"Sharpe" : sharpe_ratio, "Sortino" : sortino_ratio,"Beta" : beta_value}
 
@@ -75,12 +69,13 @@ if response.status_code == requests.codes.ok:
     
     r = float(l['yearly_rate_pct'])
     
-    print(r)
+    # print(r)
     
 else:
     print("Error:", response.status_code, response.text)
 pit1 = []
 pit2 = []
+
 for i in tickerList:
     l = sharpe_sortino_beta(i)
     pit1.append(l["Sharpe"])
@@ -90,11 +85,6 @@ for i in tickerList:
     
 newSharpe = [i/sum(pit1) for i in pit1]
 newBeta = [i/sum(pit2) for i in pit2]
-
-print("to be risk averse the new proportion of stocks in portfolio equals", newSharpe)
-
-print("to be riskey the new proportion of stocks in portfolio equals", newBeta)
-
     
 def yearsToMaturity(currentPriceListVal, faceValListVal, yearsToMatureListVal, couponRateListVal, freqListVal):
     currPrice = currentPriceListVal
@@ -144,10 +134,23 @@ def yearsToMaturity(currentPriceListVal, faceValListVal, yearsToMatureListVal, c
 
 
 mat = []
+bondDict = {'Bond 1' : '', 'Bond 2' : '', 'Bond 3' : '', 'Bond 4' : '', 'Bond 5' : ''}
 for i in range(len(currentPriceList)):
     q = yearsToMaturity(currentPriceList[i], faceValList[i], yearsToMatureList[i], couponRateList[i], freqList[i])
     mat.append(q)
-    print(q)
+    bondDict[f'Bond {i+1}']=q
+    # print(q)
 
 pp = [i/sum(mat) for i in mat]
-print(pp)
+# print(mat)
+ # print(pp)
+
+print('\n')
+print("To be risk averse the new proportion of stocks in portfolio equals", newSharpe, 'respectively')
+print('\n')
+print("To be risky the new proportion of stocks in portfolio equals", newBeta, 'respectively')
+
+print('------------------------------------------------------')
+
+print(bondDict)
+print('Given the current stability of the US Government, there is neglibile risk in Treasury Bonds, meaning they should be optimized at a proportion of', pp, 'respectively')
