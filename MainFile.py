@@ -12,7 +12,7 @@ from dash_bootstrap_templates import load_figure_template
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.SLATE])
 
-def sharpe_sortino_beta(ticker='AAPL', market_returns='SPY'):
+def sharpe_sortino_beta(ticker='TSLA', market_returns='SPY'):
     try:
         
         ts = TimeSeries(key='SWKZ23Y8HKIF4N4A', output_format='pandas')
