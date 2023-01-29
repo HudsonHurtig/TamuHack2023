@@ -62,7 +62,9 @@ app.layout = html.Div(children=[
         However, there are many factors that would potentially make this not the case.\n
      ''', style={'textAlign': 'center', 'margin-top':'7px'}),
     
-    html.H3(children=f"However, there are many factors that would potentia{sharpe_sortino_beta()}lly make this not the case.\n", style={'textAlign': 'center', 'margin-top':'7px'}),
+    html.H3(children=f"However, there are many factors that would potentially make this not the case.\n", style={'textAlign': 'center', 'margin-top':'7px'}),
+    
+    html.H3(children=f"{sharpe_sortino_beta()}", style={'textAlign': 'center', 'margin-top':'7px'}),
 
 
     # dcc.Graph(
