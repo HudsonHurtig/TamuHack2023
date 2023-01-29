@@ -1,9 +1,9 @@
 In general, the 'riskier' the investment the higher the potential returns. 
 But the potential returns are just that: potential, so it is important to be risky responsibly.
 That being said, difersifying your portfolio with riskier investments could actually reduce overall risk.
-Technology stocks and cryptocurrency [GIVE EXAMPLES HERE] have a very high volatility, allowing for the potential for very high returns.
-The volatility and potential for returns can be measured by [BRIEFLY MENTION THE METRICS]
-There is nothing wrong with taking more risks, especially if you have the income and financial freedom to support it, 
+Technology stocks and cryptocurrency IE Tesla, Nvidia, and Bitcoin have a very high volatility, allowing for the potential for very high returns, and losses.
+The volatility and potential for returns can be measured by Sharpe, and sortino ratios, as well as beta values. 
+There is nothing wrong with taking more risks, given there is inherent risk in any decsion and gaurenteed reduction in buying power if no risk is taken, 
 but one should never put all their eggs in one basket.
 
 {Tell Me More} <- button that goes to higher in depth explanations of everything with hard data
