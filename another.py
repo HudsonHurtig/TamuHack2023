@@ -1,15 +1,28 @@
 import pandas as pd
 import numpy as np
-import yfinance as yf
+from alpha_vantage.timeseries import TimeSeries
+from alpha_vantage.techindicators import TechIndicators
 from dash import Dash
 import dash_table
 import plotly.graph_objs as go
 
+# Define your Alpha Vantage API key
+api_key = 'YOUR_API_KEY'
+
 # Define the stocks you want to analyze
 stocks = ['AAPL', 'GOOG', 'AMZN', 'FB', 'TSLA']
 
+# Create an instance of the TimeSeries class
+ts = TimeSeries(key=api_key, output_format='pandas')
+
+# Create an instance of the TechIndicators class
+ti = TechIndicators(key=api_key, output_format='pandas')
+
 # Retrieve the historical data for the stocks
-data = yf.download(stocks, start='2020-01-01', end='2021-12-31')['Adj Close']
+data = {}
+for stock in stocks:
+    data[stock], _ = ts.get_daily_adjusted(symbol=stock)
+data = pd.concat(data, axis=1)
 
 # Calculate the daily returns for the stocks
 returns = data.pct_change()
@@ -23,8 +36,8 @@ sortino_ratio = returns.mean() / returns[returns<0].std()
 # Calculate the beta for each stock
 betas = {}
 for stock in stocks:
-    beta = yf.Ticker(stock).info['beta']
-    betas[stock] = beta
+    beta, _ = ti.get_beta(symbol=stock)
+    betas[stock] = beta.iloc[0]['Beta']
 
 # Create a DataFrame to hold the results
 results = pd.DataFrame({'Sharpe Ratio': sharpe_ratio, 'Sortino Ratio': sortino_ratio, 'Beta': betas})
@@ -39,8 +52,3 @@ app.layout = dash_table.DataTable(
 
 if __name__ == '__main__':
     app.run_server(debug=True)
-
-
-
-
-
