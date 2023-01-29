@@ -4,7 +4,8 @@ from flask import Flask
 
 import requests
 from alpha_vantage.timeseries import TimeSeries
-
+import pandas as pd
+import io
 import time
 
 app = Flask(__name__)
@@ -13,11 +14,20 @@ app = Flask(__name__)
 
 def overallFunction():
     rows=[]
+
+    url = "https://raw.githubusercontent.com/HudsonHurtig/TamuHack2023/main/Book1.csv"
+
+    download = requests.get(url).content
+
+    df = pd.read_csv(io.StringIO(download.decode('utf-8')))
+
+    """
     with open('C:\\Users\\avipu\\TamuHack2023\\Book1.csv') as file:
         csvreader = csv.reader(file)
         header = next(csvreader)
         for row in csvreader:
             rows.append(row)
+    """
         
     currentPriceList = []
     faceValList = []
@@ -28,12 +38,12 @@ def overallFunction():
     tickerList = []
 
     for i in range(5):
-        currentPriceList.append(float(rows[i][header.index('current price')]))
-        faceValList.append(float(rows[i][header.index('Face value')]))
-        yearsToMatureList.append(float(rows[i][header.index('years to maturity')]))
-        couponRateList.append(float(rows[i][header.index('annual coupon rate')]))
-        freqList.append(float(rows[i][header.index('frequency of coupon payment per year')]))
-        tickerList.append(rows[i][header.index('Ticker')])
+        currentPriceList.append(float(df.at[i, 'current price']))
+        faceValList.append(float(df.at[i, 'Face value']))
+        yearsToMatureList.append(float(df.at[i, 'years to maturity']))
+        couponRateList.append(float(df.at[i, 'annual coupon rate']))
+        freqList.append(float(df.at[i, 'frequency of coupon payment per year']))
+        tickerList.append(df.at[i, 'Ticker'])
 
     def sharpe_sortino_beta(ticker='TSLA', market_returns='SPY'):
         try:
@@ -154,3 +164,7 @@ def overallFunction():
                     newBeta, bondDict, pp]
 
     return overallResult
+
+if __name__ == '__main__':
+    app.debug = True
+    app.run()
