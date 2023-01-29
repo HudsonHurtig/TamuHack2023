@@ -32,10 +32,10 @@ app.layout = html.Div(children=[
         However, there are many factors that would potentially make this not the case.\n
      ''', style={'textAlign': 'center', 'margin-top':'7px'}),
 
-    dcc.Graph(
-        id='portfolio composition',
-        figure=fig
-    ),
+    # dcc.Graph(
+    #     id='portfolio composition',
+    #     figure=fig
+    # ),
     html.H6("Change the value in the text box to see callbacks in action!"),
     html.Div([
         "Input: ",
