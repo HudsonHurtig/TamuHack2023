@@ -15,7 +15,7 @@ const Projects3 = ({ projects }: Props) => {
         
         <div 
         className="min-h-screen relative flex overflow-hidden flex-col text-left max-w-full justify-center mx-auto items-center z-0 pt-24">
-            <h3 className="pl-5 uppercase tracking-[20px] text-gray-500 text-2xl mb-10">We Crunched the Numbers So You Dont Have To!</h3>
+            <h3 className="pl-5 uppercase tracking-[20px] text-gray-500 text-2xl mb-10">Slow and Steady Wins The Race</h3>
             <div style={{ width: "100%", height: "100%" }}>
       <div
         dangerouslySetInnerHTML={{

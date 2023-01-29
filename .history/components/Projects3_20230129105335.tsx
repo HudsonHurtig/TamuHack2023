@@ -11,38 +11,41 @@ type Props = {
 
 const Projects3 = ({ projects }: Props) => {
 
-    return (
-        
-        <div 
-        className="min-h-screen relative flex overflow-hidden flex-col text-left max-w-full justify-center mx-auto items-center z-0 pt-24">
-            <h3 className="pl-5 uppercase tracking-[20px] text-gray-500 text-2xl mb-10">We Crunched the Numbers So You Dont Have To!</h3>
-            <div style={{ width: "100%", height: "100%" }}>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: "<iframe src='https://docs.google.com/spreadsheets/d/e/2PACX-1vSNm7GEVo-6v4xEerKT5X1BCuwl0qR348UF6ad0C74orEVhx3qhFvZQ361ArUNTOJhwyCsiPlKVeY5V/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false' style='width:110rem; height:40rem' />"
-        }}
-      />
-    </div>
 
+    return (
+        <div className="min-h-screen relative flex overflow-hidden flex-col text-left max-w-full justify-center mx-auto items-center z-0 pt-24">
+            <h3 className="pl-5 uppercase tracking-[20px] text-gray-500 text-2xl mb-10"></h3>
+            
             <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin
         scrollbar-track-gray-400/20 scrollbar-thumb-[#a8b2d1]/40">
                 {projects?.map((project, i) => (
                     <div key={project._id}
                         className="w-screen flex-shrink-0 snap-center flex flex-col space-y-2 itmes-center justify-center px-[3rem] md:px-44">
                         <div className='md:flex md:flex-row'>
-
+                        
                             <div className='flex-auto'>
                                 <div className='space-y-5 md:px-10 lg:max-w-xl text-xs sm:pb-5 md:text-base lg:pl-10 lg:pb-4'><span className='text-[#64ffda]'>{project.linkToBuild}</span></div>
+                                return (
+    <div style={{ width: "100%", height: "500px" }}>
+      <div
+        dangerouslySetInnerHTML={{
+          __html: "<iframe src='https://www.example.com' style='width:100%; height:100%' />"
+        }}
+      />
+    </div>
+  );
                                 </div>
                                 
                                 <div className="space-y-6  md:w-[31rem] max-w-xl flex-col flex">
-
-                                    
+                     
                                
                             </div>
                             
                         </div>
+                        
 
+
+                        
                     </div>
 
                 ))}

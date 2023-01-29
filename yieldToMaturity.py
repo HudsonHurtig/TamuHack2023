@@ -10,7 +10,7 @@ import time
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/profile')
 
 def overallFunction():
     rows=[]

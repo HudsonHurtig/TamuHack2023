@@ -15,11 +15,11 @@ const Projects3 = ({ projects }: Props) => {
         
         <div 
         className="min-h-screen relative flex overflow-hidden flex-col text-left max-w-full justify-center mx-auto items-center z-0 pt-24">
-            <h3 className="pl-5 uppercase tracking-[20px] text-gray-500 text-2xl mb-10">We Crunched the Numbers So You Dont Have To!</h3>
+            <h3 className="pl-5 uppercase tracking-[20px] text-gray-500 text-2xl mb-10">Slow and Steady Wins The Race</h3>
             <div style={{ width: "100%", height: "100%" }}>
       <div
         dangerouslySetInnerHTML={{
-          __html: "<iframe src='https://docs.google.com/spreadsheets/d/e/2PACX-1vSNm7GEVo-6v4xEerKT5X1BCuwl0qR348UF6ad0C74orEVhx3qhFvZQ361ArUNTOJhwyCsiPlKVeY5V/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false' style='width:110rem; height:40rem' />"
+          __html: "<iframe src='https://www.example.com' style='width:100%; height:100%' />"
         }}
       />
     </div>
@@ -42,7 +42,18 @@ const Projects3 = ({ projects }: Props) => {
                             </div>
                             
                         </div>
+                        <p className="m-auto py-6 text-md text-center text-[#a8b2d1] sm:overflow-y-auto lg:overflow-visible lg:text-lg sm:text-md scrollbar-thin scrollbar-thumb-[#64ffda]/40 justify-center max-w-5xl max-h-96">
+                        Safer investments, like bonds, index funds, and low risk stocks are a much slower way of accumulating wealth.
+That being said, they are a steady stream of income, with far less potential for losses compared to higher risk investments.
+It is important to diversify your portfolio with both high and low risk investments, and lower risk investments are certainly easier to make if you have many financial responsibilities.
+Low risk stocks tend to be more well-established companies with long histories of growth.
+Food companies such as Coca-Cola, utilities such as Duke Energy, healthcare such as Pfizer are all examples of these.
+Dividend stocks, like Microsoft, are another kind of stock that pay a consistent dividend to shareholders.
+Arguably the safest option, however, are treasury bonds. Backed by the US Government, these bonds have almost zero risk,as the only potential risk is geopolitical instability.
+Company bonds are similar, as their main risk is essentially the company going under or going through a significant loss. 
+The downside to these bonds is that they are very long term, often in the range of 10, 20, or 30 years before you receive the payout.
 
+                        </p>
                     </div>
 
                 ))}

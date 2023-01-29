@@ -27,6 +27,14 @@ export default function ExperienceCard({ }: Props) {
             <h4 className="sm:text-2xl md:text-3xl lg:text-4xl text-left text-[#ccd6f6] font-light">High Risk, High Reward</h4>
             <p className="font-bold items-center text-left sm:text-xl lg:text-2xl nt-1">Short Term, Higher Risk</p>
             <div className="flex  lg:space-x-2 my-2 sm:space-x-1">
+                <img className="h-10 w-10 rounded-full" src="https://img.icons8.com/color/344/angularjs.png" alt='AngularJS' title='AngularJS' />
+                <img className="h-10 w-10 rounded-full" src="https://img.icons8.com/color/344/html-5--v1.png" alt='HTML5' title='HTML5' />
+                <img className="h-10 w-10 rounded-full" src="https://img.icons8.com/color/344/css3.png" alt='CSS' title='CSS' />
+                <img className="h-10 w-10 rounded-full" src="https://img.icons8.com/fluency/344/node-js.png" alt='NodeJS' title='NodeJS' />
+                <img className="h-10 w-10 rounded-full" src="https://img.icons8.com/color/344/amazon-web-services.png" alt='AWS' title='AWS' />
+                <img className="h-10 w-10 rounded-full" src="https://img.icons8.com/ios/344/django.png" alt='Django' title='Django' />
+
+
 
                 {/* Tech Used */}
                 {/* Tech Used */}

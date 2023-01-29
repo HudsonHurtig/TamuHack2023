@@ -15,11 +15,11 @@ const Projects3 = ({ projects }: Props) => {
         
         <div 
         className="min-h-screen relative flex overflow-hidden flex-col text-left max-w-full justify-center mx-auto items-center z-0 pt-24">
-            <h3 className="pl-5 uppercase tracking-[20px] text-gray-500 text-2xl mb-10">We Crunched the Numbers So You Dont Have To!</h3>
+            <h3 className="pl-5 uppercase tracking-[20px] text-gray-500 text-2xl mb-10">Slow and Steady Wins The Race</h3>
             <div style={{ width: "100%", height: "100%" }}>
       <div
         dangerouslySetInnerHTML={{
-          __html: "<iframe src='https://docs.google.com/spreadsheets/d/e/2PACX-1vSNm7GEVo-6v4xEerKT5X1BCuwl0qR348UF6ad0C74orEVhx3qhFvZQ361ArUNTOJhwyCsiPlKVeY5V/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false' style='width:110rem; height:40rem' />"
+          __html: "<iframe src='https://docs.google.com/spreadsheets/d/e/2PACX-1vSNm7GEVo-6v4xEerKT5X1BCuwl0qR348UF6ad0C74orEVhx3qhFvZQ361ArUNTOJhwyCsiPlKVeY5V/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false' style='width:90rem; height:40rem' />"
         }}
       />
     </div>
