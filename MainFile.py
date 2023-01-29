@@ -17,16 +17,11 @@ fig = go.Figure(data=[go.Pie(labels=labels, values=values)])
 
 
 app.layout = html.Div(children=[
-    html.H1(children='GS + TAMUHACK2023 portfolio optimizer'),
+    html.H1('GS + TAMUHACK2023 portfolio Risk optimizer', style={'textAlign': 'center', 'color': '#7FDBFF'}),
 
     html.Div(children='''
-                Welcome to risk mitigated finance. Simplified. 
-                ''',
-            style={
-                'textAlign': 'center',
-                'color': colors['text']
-            }
-    ),
+        Welcome to risk mitigated finance. Simplified. 
+    '''),
     
     html.Div(children='''
         There are many types of risk and exposure. Intuition would have it the safest and most conservative thing to do with the money you have saved up is nothing!
