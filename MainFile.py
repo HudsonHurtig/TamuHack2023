@@ -28,9 +28,9 @@ def sharpe_sortino_beta(ticker='TSLA', market_returns='SPY'):
         data_market, meta_data = ts.get_daily_adjusted(market_returns)
         market_returns = data_market['4. close'].pct_change()
         beta_value = returns.cov(market_returns) / market_returns.var()
-        print("Sharpe Ratio:", sharpe_ratio)
-        print("Sortino Ratio:", sortino_ratio)
-        print("beta_value:",beta_value)
+        print("Sharpe Ratio:", sharpe_ratio)   ### return of asset - market return / stdev
+        print("Sortino Ratio:", sortino_ratio) ### return of asset - market return / stdev of down side
+        print("beta_value:",beta_value) ### measure of volatility
         
         return sharpe_ratio, sortino_ratio, beta_value
     
