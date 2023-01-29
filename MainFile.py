@@ -4,7 +4,7 @@ import plotly.graph_objects as go
 import pandas as pd
 import dash_bootstrap_components as dbc
 
-app = Dash(__name__, external_stylesheets=[dbc.themes.CYBORG])
+app = Dash(__name__, external_stylesheets=[dbc.themes.SLATE])
 
 
 
@@ -21,7 +21,7 @@ app.layout = html.Div(children=[
 
     html.H2(children='''
         Welcome to risk mitigated finance. Simplified. 
-    '''),
+    ''', style={'textAlign': 'center'}),
     
     html.H3(children='''
         There are many types of risk and exposure. Intuition would have it the safest and most conservative thing to do with the money you have saved up is nothing!
