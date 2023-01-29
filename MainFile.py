@@ -10,7 +10,7 @@ import dash_bootstrap_components as dbc
 import SharpeBetaSortino as calculater
 from dash_bootstrap_templates import load_figure_template
 
-app = Dash(__name__, external_stylesheets=[dbc.themes.SLATE])
+app = Dash(__name__, external_stylesheets=[dbc.themes.CYBORG])
 
 def sharpe_sortino_beta(ticker='TSLA', market_returns='SPY'):
     try:
