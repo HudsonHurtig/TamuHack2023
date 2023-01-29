@@ -33,4 +33,4 @@ def sharpe_sortino_beta(ticker='AAPL', market_returns='SPY'):
     
 ticker = 'AAPL'
 market_returns = 'SPY'
-sharpe_sortino_beta(ticker, market_returns)
+
