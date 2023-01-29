@@ -88,6 +88,14 @@ for i in tickerList:
     print(l)
     time.sleep(30)
     
+newSharpe = [i/sum(pit1) for i in pit1]
+newBeta = [i/sum(pit2) for i in pit2]
+
+print("to be risk averse the new proportion of stocks in portfolio equals", newSharpe)
+
+print("to be riskey the new proportion of stocks in portfolio equals", newBeta)
+
+    
 def yearsToMaturity(currentPriceListVal, faceValListVal, yearsToMatureListVal, couponRateListVal, freqListVal):
     currPrice = currentPriceListVal
     faceVal = faceValListVal
@@ -130,7 +138,7 @@ def yearsToMaturity(currentPriceListVal, faceValListVal, yearsToMatureListVal, c
     else:
         root = (faceVal / currPrice) ** (1 / years) - 1
 
-    rootPercent = f'{root * 100:0.4f}%'
+    rootPercent = root 
 
     return rootPercent
 
@@ -140,3 +148,6 @@ for i in range(len(currentPriceList)):
     q = yearsToMaturity(currentPriceList[i], faceValList[i], yearsToMatureList[i], couponRateList[i], freqList[i])
     mat.append(q)
     print(q)
+
+pp = [i/sum(mat) for i in mat]
+print(pp)
