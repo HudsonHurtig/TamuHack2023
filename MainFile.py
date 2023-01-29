@@ -20,8 +20,13 @@ app.layout = html.Div(children=[
     html.H1(children='GS + TAMUHACK2023 portfolio optimizer'),
 
     html.Div(children='''
-        Welcome to risk mitigated finance. Simplified. 
-    '''),
+                Welcome to risk mitigated finance. Simplified. 
+                ''',
+            style={
+                'textAlign': 'center',
+                'color': colors['text']
+            }
+    ),
     
     html.Div(children='''
         There are many types of risk and exposure. Intuition would have it the safest and most conservative thing to do with the money you have saved up is nothing!
@@ -29,7 +34,7 @@ app.layout = html.Div(children=[
     
     html.Div(children='''
         However, there are many factors that would potentially make this not the case.
-    # ''')#,
+     ''')#,
 
     # dcc.Graph(
     #     id='portfolio composition',
