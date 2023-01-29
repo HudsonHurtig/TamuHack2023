@@ -3,6 +3,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 import dash_bootstrap_components as dbc
+
+import SharpeBetaSortino as calculater
 from dash_bootstrap_templates import load_figure_template
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.SLATE])
@@ -51,7 +53,7 @@ app.layout = html.Div(children=[
 )
 
 def update_output_div(input_value):
-    return f'Output: {input_value}'
+    return f'Output: {calculater.sharpe_sortino_beta(input_value)}'
 
 if __name__ == '__main__':
     app.run_server(debug=True, host='0.0.0.0',port=80)
