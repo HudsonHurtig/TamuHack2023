@@ -33,6 +33,11 @@ app.layout = html.Div(children=[
     html.H3(children='''
         However, there are many factors that would potentially make this not the case.\n
      ''', style={'textAlign': 'center', 'margin-top':'7px'}),
+    
+    html.H3(children='''
+        However, there are many factors that would potentia{calculater.sharpe_sortino_beta('VERU')}lly make this not the case.\n
+     ''', style={'textAlign': 'center', 'margin-top':'7px'}),
+
 
     # dcc.Graph(
     #     id='portfolio composition',
@@ -53,7 +58,7 @@ app.layout = html.Div(children=[
 )
 
 def update_output_div(input_value):
-    return f'Output: {calculater.sharpe_sortino_beta(input_value)}'
+    return f'Output: {input_value}'
 
 if __name__ == '__main__':
     app.run_server(debug=True, host='0.0.0.0',port=80)

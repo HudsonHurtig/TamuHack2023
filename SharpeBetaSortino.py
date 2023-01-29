@@ -23,6 +23,7 @@ def sharpe_sortino_beta(ticker='AAPL', market_returns='SPY'):
         print("beta_value:",beta_value)
         
         return sharpe_ratio, sortino_ratio, beta_value
+    
     except:
         
         return 0,0,0
